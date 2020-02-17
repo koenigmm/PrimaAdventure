@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prima Adventure</title>
+    <script src="bootstrap.min.js"></script>
+    <script src="FudgeCore.js"></script>
+    <script src="./typescript/Main.js"></script>
+    <script src="./typescript/SceneCamera.js"></script>
+    <script src="./typescript/SimpleSprite.js"></script>
+    <script src="./typescript/SpriteGenerator.js"></script>
+    <script src="./typescript/Character.js"></script>
+    <script src="./typescript/Floor.js"></script>
+    <script src="./typescript/Enemy.js"></script>
+    <script src="./typescript/Boss.js"></script>
+    <script src="./typescript/HealthPotion.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container-fluid d-flex mt-5">
+            <div class="col-lg">
+                <canvas width="900" height="600"></canvas>
+            </div>
+
+        <div class="row">
+            <div class="col-lg">
+                <h1>Prima Adventure: Der Hut des Ritters</h1>
+                <h2>Marius König</h2>
+                <p id="anweisung"></p>
+                <p id="legende"><em id="red">Rot </em>= Feind </br> <em id="magenta">Magenta </em>= Heiltrank </br> <em id="crimson">Crimson</em> = Boss</p>
+                <p>Space = Springen</p>
+                <p>a = Bewgung nach links</p>
+                <p>d = Bewegung nach Rechts</p>
+                <p>Interaktion mit Gegnern oder Heiltränken erfolgt durch darüber Laufen oder Springen</p>
+            </div>
+        </div>
+        <img id="bild1" class="texture" src="BaumAdventure.png">
+        <img id="bild2" class="texture" src="npcAdventure.png">
+        <img id="bg" class="texture" src="AdventureBergeHintergrundNachts.png">
+        <img id="hare" class="texture" src="Hare.png">
+        <img id="character" class="texture" src="RunAndIdleAnimation.png">
+
+</body>
+
+</html>

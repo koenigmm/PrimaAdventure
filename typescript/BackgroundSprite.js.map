@@ -1,0 +1,1 @@
+{"version":3,"file":"BackgroundSprite.js","sourceRoot":"","sources":["BackgroundSprite.ts"],"names":[],"mappings":";AAAA,IAAU,cAAc,CAQvB;AARD,WAAU,cAAc;IAGpB,MAAa,gBAAiB,SAAQ,eAAA,YAAY;QAC9C,YAAmB,IAAsB,EAAE,QAAgB,EAAE,SAAqB;YAC9E,KAAK,CAAC,IAAI,EAAE,QAAQ,EAAE,SAAS,CAAC,CAAC;QACrC,CAAC;KACJ;IAJY,+BAAgB,mBAI5B,CAAA;AACL,CAAC,EARS,cAAc,KAAd,cAAc,QAQvB"}

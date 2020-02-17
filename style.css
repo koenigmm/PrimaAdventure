@@ -1,0 +1,30 @@
+.texture {
+    display: none;
+}
+
+canvas {
+    border-style: solid;
+    border-width: 0.1em;
+}
+
+#red {
+    color: red;
+    font-weight: bold;
+    font-style: normal;
+}
+
+#crimson {
+    color: crimson;
+    font-weight: bold;
+    font-style: normal;
+}
+
+#magenta {
+    color: magenta;
+    font-weight: bold;
+    font-style: normal;
+}
+
+p {
+    font-size: 14pt;
+}
