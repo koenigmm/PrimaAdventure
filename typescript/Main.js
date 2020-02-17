@@ -87,32 +87,42 @@ var PrimaAdventure;
     }
     function createFloors() {
         let level = new ƒ.Node("Level");
-        let floorGround = new PrimaAdventure.Floor("darkslategray");
-        floorGround.cmpTransform.local.scaleY(0.4);
-        floorGround.cmpTransform.local.scaleX(40);
-        floorGround.cmpTransform.local.translateY(-1.3);
-        floorGround.cmpTransform.local.translateX(10);
-        level.appendChild(floorGround);
-        let floor = new PrimaAdventure.Floor();
-        floor.cmpTransform.local.scaleY(0.2);
-        floor.cmpTransform.local.translateY(-0.2);
-        level.appendChild(floor);
-        let floor02 = new PrimaAdventure.Floor();
-        floor02.cmpTransform.local.scaleY(0.2);
-        floor02.cmpTransform.local.scaleX(2);
-        floor02.cmpTransform.local.translateX(2);
-        level.appendChild(floor02);
-        let floor03 = new PrimaAdventure.Floor();
-        floor03.cmpTransform.local.scaleY(0.2);
-        floor03.cmpTransform.local.scaleX(2);
-        floor03.cmpTransform.local.translateX(15);
-        level.appendChild(floor03);
-        let floor04 = new PrimaAdventure.Floor();
-        floor04.cmpTransform.local.scaleY(0.2);
-        floor04.cmpTransform.local.scaleX(2);
-        floor04.cmpTransform.local.translateX(17);
-        floor04.cmpTransform.local.translateY(-0.5);
-        level.appendChild(floor04);
+        fetch("./typescript/coordinates.json")
+            .then((response) => response.json()
+            .then((data) => {
+            console.log(data.potions);
+            let floorGround = new PrimaAdventure.Floor("darkslategray");
+            floorGround.cmpTransform.local.scaleY(0.4);
+            floorGround.cmpTransform.local.scaleX(40);
+            // floorGround.cmpTransform.local.translateY(-1.3);
+            // floorGround.cmpTransform.local.translateX(10);
+            floorGround.cmpTransform.local.translation = new ƒ.Vector3(data.floors[0].x, data.floors[0].y, data.floors[0].z);
+            level.appendChild(floorGround);
+            let floor = new PrimaAdventure.Floor();
+            floor.cmpTransform.local.scaleY(0.2);
+            // floor.cmpTransform.local.translateY(-0.2);
+            floor.cmpTransform.local.translation = new ƒ.Vector3(data.floors[1].x, data.floors[1].y, data.floors[1].z);
+            level.appendChild(floor);
+            let floor02 = new PrimaAdventure.Floor();
+            floor02.cmpTransform.local.scaleY(0.2);
+            floor02.cmpTransform.local.scaleX(2);
+            // floor02.cmpTransform.local.translateX(2);
+            floor02.cmpTransform.local.translation = new ƒ.Vector3(data.floors[2].x, data.floors[2].y, data.floors[2].z);
+            level.appendChild(floor02);
+            let floor03 = new PrimaAdventure.Floor();
+            floor03.cmpTransform.local.scaleY(0.2);
+            floor03.cmpTransform.local.scaleX(2);
+            // floor03.cmpTransform.local.translateX(15);
+            floor03.cmpTransform.local.translation = new ƒ.Vector3(data.floors[3].x, data.floors[3].y, data.floors[3].z);
+            level.appendChild(floor03);
+            let floor04 = new PrimaAdventure.Floor();
+            floor04.cmpTransform.local.scaleY(0.2);
+            floor04.cmpTransform.local.scaleX(2);
+            // floor04.cmpTransform.local.translateX(17);
+            // floor04.cmpTransform.local.translateY(-0.5);
+            floor04.cmpTransform.local.translation = new ƒ.Vector3(data.floors[4].x, data.floors[4].y, data.floors[4].z);
+            level.appendChild(floor04);
+        }));
         return level;
     }
     function createEnemiesAndAppend() {
