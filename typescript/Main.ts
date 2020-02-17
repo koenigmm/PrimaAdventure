@@ -10,9 +10,11 @@ namespace PrimaAdventure {
     export let viewport: ƒ.Viewport;
     export let audioSword: HTMLAudioElement;
     export let bubble: HTMLAudioElement;
-    export let fanfare: HTMLAudioElement; 
+    export let fanfare: HTMLAudioElement;
     let sceneCamera: SceneCamera;
     let character: Character;
+    let delayesAssetsSpawned: boolean = false;
+    let spawnedMessage: string = "First Wave";
     export let time: ƒ.Time;
 
     interface KeyPressed {
@@ -68,6 +70,9 @@ namespace PrimaAdventure {
     function update(_event: ƒ.Eventƒ): void {
         let timeAsNumber: number = time.get();
         let timeAsSeconds: number = Math.floor(timeAsNumber / 1000);
+        if (delayesAssetsSpawned == false) {
+            createDelayedAssets(20000);
+        }
         if (gameWon == false) {
             processInput();
             if (character.defeatedEnemies >= 0) {
@@ -83,6 +88,7 @@ namespace PrimaAdventure {
             canvasRenderingContext.fillText(leftGuiText, 10, 50);
             canvasRenderingContext.fillText("HP " + character.healthpoints.toString(), 760, 50);
             canvasRenderingContext.fillText("time: " + timeAsSeconds.toString(), 400, 570);
+            canvasRenderingContext.fillText(spawnedMessage, 400, 50);
         }
     }
 
@@ -159,13 +165,27 @@ namespace PrimaAdventure {
         enemy03.cmpTransform.local.translation = new ƒ.Vector3(15, 0.5);
         level.appendChild(enemy03);
 
-        let enemy04: Enemy = new Enemy();
-        enemy04.cmpTransform.local.translation = new ƒ.Vector3(17, 0);
-        level.appendChild(enemy04);
 
         let enemy05: Enemy = new Enemy();
         enemy05.cmpTransform.local.translation = new ƒ.Vector3(7, -0.5);
         level.appendChild(enemy05);
+
+    }
+
+    function createDelayedAssets(_delay: number): void {
+        if (time.get() >= _delay) {
+            console.log("H");
+            let enemy04: Enemy = new Enemy();
+            enemy04.cmpTransform.local.translation = new ƒ.Vector3(17, 0);
+            level.appendChild(enemy04);
+
+            let healthPotion04: Healthpotion = new Healthpotion(60);
+            healthPotion04.cmpTransform.local.translateX(17.75);
+            level.appendChild(healthPotion04);
+            delayesAssetsSpawned = true;
+            spawnedMessage = "Second Wave";
+
+        }
     }
 
     function createHealthpotionsAndAppend(): void {
@@ -182,9 +202,9 @@ namespace PrimaAdventure {
         healthPotion03.cmpTransform.local.translateX(10);
         level.appendChild(healthPotion03);
 
-        let healthPotion04: Healthpotion = new Healthpotion(60);
+        /* let healthPotion04: Healthpotion = new Healthpotion(60);
         healthPotion04.cmpTransform.local.translateX(17.75);
-        level.appendChild(healthPotion04);
+        level.appendChild(healthPotion04); */
 
     }
 

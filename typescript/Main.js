@@ -7,6 +7,8 @@ var PrimaAdventure;
     PrimaAdventure.gameWon = false;
     let sceneCamera;
     let character;
+    let delayesAssetsSpawned = false;
+    let spawnedMessage = "First Wave";
     PrimaAdventure.keysPressed = {};
     window.addEventListener("load", hndLoad);
     function hndLoad(_event) {
@@ -46,6 +48,9 @@ var PrimaAdventure;
     function update(_event) {
         let timeAsNumber = PrimaAdventure.time.get();
         let timeAsSeconds = Math.floor(timeAsNumber / 1000);
+        if (delayesAssetsSpawned == false) {
+            createDelayedAssets(20000);
+        }
         if (PrimaAdventure.gameWon == false) {
             processInput();
             if (character.defeatedEnemies >= 0) {
@@ -59,6 +64,7 @@ var PrimaAdventure;
             PrimaAdventure.canvasRenderingContext.fillText(PrimaAdventure.leftGuiText, 10, 50);
             PrimaAdventure.canvasRenderingContext.fillText("HP " + character.healthpoints.toString(), 760, 50);
             PrimaAdventure.canvasRenderingContext.fillText("time: " + timeAsSeconds.toString(), 400, 570);
+            PrimaAdventure.canvasRenderingContext.fillText(spawnedMessage, 400, 50);
         }
     }
     function handleKeyboard(_event) {
@@ -120,12 +126,22 @@ var PrimaAdventure;
         let enemy03 = new PrimaAdventure.Enemy();
         enemy03.cmpTransform.local.translation = new ƒ.Vector3(15, 0.5);
         PrimaAdventure.level.appendChild(enemy03);
-        let enemy04 = new PrimaAdventure.Enemy();
-        enemy04.cmpTransform.local.translation = new ƒ.Vector3(17, 0);
-        PrimaAdventure.level.appendChild(enemy04);
         let enemy05 = new PrimaAdventure.Enemy();
         enemy05.cmpTransform.local.translation = new ƒ.Vector3(7, -0.5);
         PrimaAdventure.level.appendChild(enemy05);
+    }
+    function createDelayedAssets(_delay) {
+        if (PrimaAdventure.time.get() >= _delay) {
+            console.log("H");
+            let enemy04 = new PrimaAdventure.Enemy();
+            enemy04.cmpTransform.local.translation = new ƒ.Vector3(17, 0);
+            PrimaAdventure.level.appendChild(enemy04);
+            let healthPotion04 = new PrimaAdventure.Healthpotion(60);
+            healthPotion04.cmpTransform.local.translateX(17.75);
+            PrimaAdventure.level.appendChild(healthPotion04);
+            delayesAssetsSpawned = true;
+            spawnedMessage = "Second Wave";
+        }
     }
     function createHealthpotionsAndAppend() {
         let healthPotion01 = new PrimaAdventure.Healthpotion(20);
@@ -138,9 +154,9 @@ var PrimaAdventure;
         let healthPotion03 = new PrimaAdventure.Healthpotion(40);
         healthPotion03.cmpTransform.local.translateX(10);
         PrimaAdventure.level.appendChild(healthPotion03);
-        let healthPotion04 = new PrimaAdventure.Healthpotion(60);
+        /* let healthPotion04: Healthpotion = new Healthpotion(60);
         healthPotion04.cmpTransform.local.translateX(17.75);
-        PrimaAdventure.level.appendChild(healthPotion04);
+        level.appendChild(healthPotion04); */
     }
     function createSimpleSpritesAndAppend(_offset) {
         let image = document.querySelector("#bild1");
