@@ -18,7 +18,7 @@ var PrimaAdventure;
         PrimaAdventure.fanfare = new Audio("fanfare.wav");
         PrimaAdventure.bubble = new Audio("heal.wav");
         PrimaAdventure.txtAnweisung = document.getElementById("anweisung");
-        PrimaAdventure.txtAnweisung.innerText = "Dein Hut wurde von einem Monster geklaut. Wenn du seine Helfer besiegst, wird das Monster erscheinen. Besiegst Du das Monster, bekommst du Deinen Hut zurück und das Spiel ist gewonnen.";
+        PrimaAdventure.txtAnweisung.innerText = "Dein Hut wurde von einem Monster geklaut. Wenn du seine Helfer besiegst, wird das Monster erscheinen. Besiegst Du das Monster, bekommst du Deinen Hut zurück und das Spiel ist gewonnen. Der Inspector von Chrome oder Firefox lässt die Spielfigur durch die Foors fallen";
         PrimaAdventure.level = createFloors();
         PrimaAdventure.game.appendChild(PrimaAdventure.level);
         PrimaAdventure.canvasRenderingContext = canvas.getContext("2d");

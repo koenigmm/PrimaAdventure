@@ -31,7 +31,7 @@ namespace PrimaAdventure {
         fanfare = new Audio("fanfare.wav");
         bubble = new Audio("heal.wav");
         txtAnweisung = document.getElementById("anweisung");
-        txtAnweisung.innerText = "Dein Hut wurde von einem Monster geklaut. Wenn du seine Helfer besiegst, wird das Monster erscheinen. Besiegst Du das Monster, bekommst du Deinen Hut zurück und das Spiel ist gewonnen.";
+        txtAnweisung.innerText = "Dein Hut wurde von einem Monster geklaut. Wenn du seine Helfer besiegst, wird das Monster erscheinen. Besiegst Du das Monster, bekommst du Deinen Hut zurück und das Spiel ist gewonnen. Der Inspector von Chrome oder Firefox lässt die Spielfigur durch die Foors fallen";
         level = createFloors();
         game.appendChild(level);
         canvasRenderingContext = canvas.getContext("2d");
