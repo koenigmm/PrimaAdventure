@@ -3,9 +3,9 @@
 
 [Typescript Code im Repo](https://github.com/koenigmm/PrimaAdventure/tree/master/typescript)
 
-[Design Dokument]()
+[Designdokument](https://github.com/koenigmm/PrimaAdventure/blob/master/DatenFuerAbgabe/PRIMA%20Designdokument.pdf)
 
-[ZIP-File der Anwendung]()
+[ZIP-File der Anwendung](https://github.com/koenigmm/PrimaAdventure/blob/master/DatenFuerAbgabe/PrimaAdventureDerHutDesRitters.zip)
 
 [Repository PRIMA alt](https://github.com/koenigmm/Prima)
 ## Checkliste für Leistungsnachweis
