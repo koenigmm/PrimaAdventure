@@ -129,6 +129,8 @@ namespace PrimaAdventure {
             fanfare.play();
             ƒ.Loop.stop();
             document.getElementById("anweisung").innerText = "Gewonnen. Neuladen, um von vonrne zu beginnen";
+            sceneCamera.componentCamera.pivot.translateY(10);
+            viewport.draw();
             alert("Game Won");
           }
           if (this.defeatedEnemies >= targetToSpawnBoss && gameWon == false) {
@@ -143,6 +145,8 @@ namespace PrimaAdventure {
         if (this.healthpoints <= 0) {
           console.log("lost");
           document.getElementById("anweisung").innerText = "Verloren. Neuladen um wieder von vorne zu beginnen";
+          sceneCamera.componentCamera.pivot.translateY(10);
+          viewport.draw();
           alert("Lost");
           ƒ.Loop.stop();
           break;

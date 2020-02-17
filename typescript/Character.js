@@ -109,6 +109,8 @@ var PrimaAdventure;
                         PrimaAdventure.fanfare.play();
                         ƒ.Loop.stop();
                         document.getElementById("anweisung").innerText = "Gewonnen. Neuladen, um von vonrne zu beginnen";
+                        PrimaAdventure.sceneCamera.componentCamera.pivot.translateY(10);
+                        PrimaAdventure.viewport.draw();
                         alert("Game Won");
                     }
                     if (this.defeatedEnemies >= PrimaAdventure.targetToSpawnBoss && PrimaAdventure.gameWon == false) {
@@ -123,6 +125,8 @@ var PrimaAdventure;
                 if (this.healthpoints <= 0) {
                     console.log("lost");
                     document.getElementById("anweisung").innerText = "Verloren. Neuladen um wieder von vorne zu beginnen";
+                    PrimaAdventure.sceneCamera.componentCamera.pivot.translateY(10);
+                    PrimaAdventure.viewport.draw();
                     alert("Lost");
                     ƒ.Loop.stop();
                     break;

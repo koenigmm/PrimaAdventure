@@ -5,7 +5,6 @@ var PrimaAdventure;
     PrimaAdventure.game = new ƒ.Node("game");
     PrimaAdventure.targetToSpawnBoss = 5;
     PrimaAdventure.gameWon = false;
-    let sceneCamera;
     let character;
     let delayesAssetsSpawned = false;
     let spawnedMessage = "First Wave";
@@ -24,7 +23,7 @@ var PrimaAdventure;
         PrimaAdventure.canvasRenderingContext = canvas.getContext("2d");
         createEnemiesAndAppend();
         createHealthpotionsAndAppend();
-        sceneCamera = new PrimaAdventure.SceneCamera(5, ƒ.Color.CSS("white"));
+        PrimaAdventure.sceneCamera = new PrimaAdventure.SceneCamera(5, ƒ.Color.CSS("white"));
         createSimpleSpritesAndAppend(0);
         createSimpleSpritesAndAppend(8);
         createSimpleSpritesAndAppend(16);
@@ -38,7 +37,7 @@ var PrimaAdventure;
         PrimaAdventure.game.appendChild(character);
         PrimaAdventure.viewport = new ƒ.Viewport();
         ƒ.RenderManager.initialize();
-        PrimaAdventure.viewport.initialize("Viewport", PrimaAdventure.game, sceneCamera.componentCamera, canvas);
+        PrimaAdventure.viewport.initialize("Viewport", PrimaAdventure.game, PrimaAdventure.sceneCamera.componentCamera, canvas);
         PrimaAdventure.viewport.draw();
         document.addEventListener("keydown", handleKeyboard);
         document.addEventListener("keyup", handleKeyboard);
@@ -73,14 +72,14 @@ var PrimaAdventure;
             character.act(PrimaAdventure.ACTION.JUMP);
     }
     function processInput() {
-        if (PrimaAdventure.keysPressed[ƒ.KEYBOARD_CODE.A] && sceneCamera.componentCamera.pivot.translation.x >= -3) {
+        if (PrimaAdventure.keysPressed[ƒ.KEYBOARD_CODE.A] && PrimaAdventure.sceneCamera.componentCamera.pivot.translation.x >= -3) {
             character.act(PrimaAdventure.ACTION.WALK, PrimaAdventure.DIRECTION.LEFT);
-            sceneCamera.componentCamera.pivot.translateX(-0.15);
+            PrimaAdventure.sceneCamera.componentCamera.pivot.translateX(-0.15);
             return;
         }
-        if (PrimaAdventure.keysPressed[ƒ.KEYBOARD_CODE.D] && sceneCamera.componentCamera.pivot.translation.x <= 19) {
+        if (PrimaAdventure.keysPressed[ƒ.KEYBOARD_CODE.D] && PrimaAdventure.sceneCamera.componentCamera.pivot.translation.x <= 19) {
             character.act(PrimaAdventure.ACTION.WALK, PrimaAdventure.DIRECTION.RIGHT);
-            sceneCamera.componentCamera.pivot.translateX(0.15);
+            PrimaAdventure.sceneCamera.componentCamera.pivot.translateX(0.15);
             return;
         }
         character.act(PrimaAdventure.ACTION.IDLE);

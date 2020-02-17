@@ -11,7 +11,7 @@ namespace PrimaAdventure {
     export let audioSword: HTMLAudioElement;
     export let bubble: HTMLAudioElement;
     export let fanfare: HTMLAudioElement;
-    let sceneCamera: SceneCamera;
+    export let sceneCamera: SceneCamera;
     let character: Character;
     let delayesAssetsSpawned: boolean = false;
     let spawnedMessage: string = "First Wave";
